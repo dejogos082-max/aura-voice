@@ -3,7 +3,7 @@ import { useAppStore } from '../store/useAppStore';
 import { useAuthStore } from '../store/useAuthStore';
 import { ref, onValue, push, set } from 'firebase/database';
 import { db } from '../lib/firebase';
-import { MessageCircle, Plus, LogOut } from 'lucide-react';
+import { MessageCircle, Plus, LogOut, User } from 'lucide-react';
 import { auth } from '../lib/firebase';
 
 interface Server {
@@ -14,7 +14,7 @@ interface Server {
 }
 
 export default function Sidebar() {
-  const { view, setView, selectServer, selectedServerId } = useAppStore();
+  const { view, setView, selectServer, selectedServerId, setProfileModalOpen } = useAppStore();
   const { profile } = useAuthStore();
   const [servers, setServers] = useState<Server[]>([]);
   const [showCreate, setShowCreate] = useState(false);
@@ -126,7 +126,18 @@ export default function Sidebar() {
         </button>
       </div>
 
-      <div className="mt-auto pt-4">
+      <div className="mt-auto pt-4 flex flex-col gap-3">
+        <button
+          onClick={() => setProfileModalOpen(true)}
+          className="w-12 h-12 rounded-[24px] hover:rounded-[16px] transition-all duration-200 flex items-center justify-center bg-zinc-800 text-zinc-400 hover:bg-indigo-500 hover:text-white"
+          title="Profile"
+        >
+          {profile?.avatarUrl ? (
+            <img src={profile.avatarUrl} alt="Profile" className="w-full h-full rounded-[inherit] object-cover" />
+          ) : (
+            <User size={20} />
+          )}
+        </button>
         <button
           onClick={() => auth.signOut()}
           className="w-12 h-12 rounded-[24px] hover:rounded-[16px] transition-all duration-200 flex items-center justify-center bg-zinc-800 text-red-500 hover:bg-red-500 hover:text-white"

@@ -6,6 +6,9 @@ import { auth, db } from './lib/firebase';
 import { useAuthStore } from './store/useAuthStore';
 import Login from './pages/Login';
 import Main from './pages/Main';
+import Invite from './pages/Invite';
+
+import ServerSettings from './pages/ServerSettings';
 
 export default function App() {
   const { user, loading, setUser, setProfile, setLoading } = useAuthStore();
@@ -60,6 +63,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={user ? <Main /> : <Navigate to="/login" />} />
         <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+        <Route path="/invite/:serverId" element={<Invite />} />
+        <Route path="/server/:serverId/settings" element={user ? <ServerSettings /> : <Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
   );

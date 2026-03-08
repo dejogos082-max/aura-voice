@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+/* LiveKit Overrides */
+.lk-room-container {
+  height: 100% !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.lk-video-conference {
+  height: 100% !important;
+  width: 100% !important;
+  flex: 1 !important;
+  overflow: hidden !important;
+}
+
+.lk-video-conference-inner {
+  height: 100% !important;
+  flex: 1 !important;
+}
