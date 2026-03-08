@@ -1,0 +1,5 @@
+{
+  "name": "AuraVoice",
+  "description": "Group or 1v1 calling app with real-time encrypted text chat and media sharing.",
+  "requestFramePermissions": ["camera", "microphone"]
+}
