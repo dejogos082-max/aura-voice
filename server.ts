@@ -75,7 +75,7 @@ async function startServer() {
     }
   });
 
-  app.post("/api/livekit/token", async (req, res) => {
+  app.post("/api/livekit-token", async (req, res) => {
     const { roomName, participantName } = req.body;
 
     if (!roomName || !participantName) {

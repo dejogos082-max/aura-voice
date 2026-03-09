@@ -14,7 +14,7 @@ export default function CallArea() {
 
     const fetchToken = async () => {
       try {
-        const response = await fetch('/api/livekit/token', {
+        const response = await fetch('/api/livekit-token', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

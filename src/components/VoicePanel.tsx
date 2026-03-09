@@ -25,7 +25,7 @@ export default function VoicePanel() {
       if (channelId) {
         setChannelName('Voice Connected');
         // Fetch token
-        fetch('/api/livekit/token', {
+        fetch('/api/livekit-token', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
