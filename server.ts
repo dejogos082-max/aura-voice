@@ -67,7 +67,8 @@ async function startServer() {
         })
       );
 
-      const publicUrl = `${publicUrlBase}/${uniqueFileName}`;
+      const baseUrl = publicUrlBase.endsWith('/') ? publicUrlBase.slice(0, -1) : publicUrlBase;
+      const publicUrl = `${baseUrl}/${uniqueFileName}`;
       res.json({ url: publicUrl });
     } catch (error: any) {
       console.error("Upload error:", error);
@@ -105,12 +106,15 @@ async function startServer() {
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: { 
+        middlewareMode: true,
+        watch: null, // Disable file watching to prevent infinite loops
+      },
       appType: "spa",
     });
     app.use(vite.middlewares);
   } else {
-    app.use(express.static("dist/client"));
+    app.use(express.static("dist"));
   }
 
   app.listen(PORT, "0.0.0.0", () => {
