@@ -1,0 +1,18 @@
+name = "aura-voice"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[r2_buckets]]
+binding = "MY_BUCKET"
+bucket_name = "aura-voice"
+
+[vars]
+LIVEKIT_API_KEY = "APIYWfxWuT2CR4H"
+LIVEKIT_API_SECRET = "b1DBoowxheL6RWkkIruQFx9fpQOFZNfLtbBqAKbHYrtA"
+R2_PUBLIC_URL = "auravoice.bucket.ironvalecraft.shop"
+R2_ACCESS_KEY_ID = "efeb0a49b03173ade894a7224975f914"
+R2_BUCKET_NAME = "aura-voice"
+LIVEKIT_URL = "wss://aura-voice-1b74mebv.livekit.cloud"
+R2_ACCOUNT_ID = "7b6b27d12265ebd16b19f2cf1577f778"
+R2_SECRET_ACCESS_KEY = "011bb8ddad51d9baae2a89b047261786e6ff608287a2498e86a4539c61552fe5"
